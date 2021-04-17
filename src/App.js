@@ -1,4 +1,5 @@
-import './App.css';
+import "bootswatch/dist/slate/bootstrap.min.css";
+import "./App.css";
 
 function App() {
   return (
