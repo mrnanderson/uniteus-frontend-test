@@ -1,29 +1,29 @@
 
 {
-  "users":[
+  "employees":[
     {
       "id": 1,
       "name": "Jerry",
       "location": "New York City",
-      "pet": "Cat"
+      "email": "jerry@uniteus.com"
     },
     {
       "id": 2,
       "name": "George",
       "location": "New York City",
-      "pet": "Bunny"
+      "email": "george@uniteus.com"
     },
     {
       "id": 3,
       "name": "Kramer",
       "location": "Los Angeles",
-      "pet": "Ferret"
+      "email": "kramer@uniteus.com"
     },
     {
       "id": 4,
       "name": "David Puddy",
       "location": "Boston",
-      "pet": "Guinea Pig"
+      "email": "dpuddy@uniteus.com"
     }
   ]
 }
