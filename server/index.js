@@ -13,7 +13,7 @@ app.get("/employees", (req, res) => {
 });
 
 app.post("/employee", (req, res) => {
-  const employee = JSON.parse(req.body);
+  const employee = req.body?.employee;
   if (!employee) {
     throw Error("employee required");
   }
@@ -26,15 +26,12 @@ app.post("/employee", (req, res) => {
   if (!employee.email) {
     throw Error("employee email required");
   }
-  //todo validate email
-  const employeesJson = fs.readFileSync("server/data/employees.json");
-  let employeesData = JSON.parse(employeesJson);
-  employeesData.employees = [...employeesData.employees, employee];
-  fs.writeFileSync(
-    "/server/data.employees.json",
-    JSON.stringify(employeesData)
-  );
-  res.send();
+
+  const employeesData = fs.readFileSync("server/data/employees.json");
+  let employees = JSON.parse(employeesData);
+  employees.employees = [...employees.employees, employee];
+  fs.writeFileSync("server/data/employees.json", JSON.stringify(employees));
+  res.json(employees);
 });
 
 app.listen(port, () => {

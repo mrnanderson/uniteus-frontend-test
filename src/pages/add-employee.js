@@ -1,9 +1,12 @@
 import React from "react";
+import AddEmployeeForm from "../forms/add-employee-form";
 import Main from "../layouts/main";
+
+//styles
 
 const AddEmployee = () => (
   <Main>
-    <div>add employee</div>
+    <AddEmployeeForm />
   </Main>
 );
 export default AddEmployee;

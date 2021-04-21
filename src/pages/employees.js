@@ -7,15 +7,9 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 
 //styles
-const content = {
-  display: "flex",
-  justifyContent: "center",
-  flexDirection: "column",
-  flexGrow: "1",
-};
 const employeeContainer = { justifyContent: "center", maxWidth: "700px" };
 const employeeRow = {
-  backgroundColor: "grey",
+  backgroundColor: "lightgrey",
   color: "black",
   margin: "10px 0px",
   padding: "5px 0px",
@@ -28,7 +22,13 @@ const Employees = () => {
   const [filteredEmployees, setFilteredEmployees] = useState([]);
   //set employees when loaded into context
   useEffect(() => {
-    setFilteredEmployees(employees);
+    let mounted = true;
+    if (mounted) {
+      setFilteredEmployees(employees);
+    }
+    return () => {
+      mounted = false;
+    };
   }, [employees]);
 
   const filterEmployees = (search) => {
@@ -49,28 +49,26 @@ const Employees = () => {
 
   return (
     <Main>
-      <div style={content}>
-        <Container style={employeeContainer}>
-          <Row style={searchRow}>
-            <Col xs="3">
-              <Form.Control
-                onChange={(e) => {
-                  filterEmployees(sanitizeString(e.target.value));
-                }}
-                type="text"
-                placeholder="Search by Name"
-              />
-            </Col>
+      <Container style={employeeContainer}>
+        <Row style={searchRow}>
+          <Col xs="3">
+            <Form.Control
+              onChange={(e) => {
+                filterEmployees(sanitizeString(e.target.value));
+              }}
+              type="text"
+              placeholder="Search by Name"
+            />
+          </Col>
+        </Row>
+        {filteredEmployees.map((employee) => (
+          <Row style={employeeRow} key={employee?.email}>
+            <Col>{employee.name}</Col>
+            <Col>{employee.location}</Col>
+            <Col>{employee.email}</Col>
           </Row>
-          {filteredEmployees.map((employee) => (
-            <Row style={employeeRow} key={employee?.email}>
-              <Col>{employee.name}</Col>
-              <Col>{employee.location}</Col>
-              <Col>{employee.email}</Col>
-            </Row>
-          ))}
-        </Container>
-      </div>
+        ))}
+      </Container>
     </Main>
   );
 };

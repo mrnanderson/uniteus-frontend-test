@@ -10,7 +10,22 @@ const getEmployees = async () => {
   return employeeJson?.employees;
 };
 
-const addemployee = async ({ name, location, email }) => {};
+const addEmployee = async ({ name, location, email }) => {
+  const addEmployeeResponse = await fetch(`${baseUrl}/employee`, {
+    method: "POST",
+    mode: "cors",
+    headers: { "content-type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({ employee: { name, location, email } }),
+  });
+  const addEmployeeJson = await addEmployeeResponse.json();
+  //simulate loading
+  await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, 2500);
+  });
+  return addEmployeeJson?.employees;
+};
 
-const employeeService = { getEmployees, addemployee };
+const employeeService = { getEmployees, addEmployee };
 export default employeeService;

@@ -5,6 +5,13 @@ import TopNav from "../framework/top-nav";
 
 const topRow = { justifyContent: "center", padding: "20px 10px 50px 10px" };
 
+const content = {
+  display: "flex",
+  justifyContent: "center",
+  flexDirection: "column",
+  flexGrow: "1",
+};
+
 const Main = ({ children }) => {
   return (
     <Container fluid>
@@ -12,7 +19,9 @@ const Main = ({ children }) => {
         <h1>Unite Us</h1>
       </Row>
       <TopNav />
-      <Row>{children}</Row>
+      <Row>
+        <div style={content}>{children}</div>
+      </Row>
     </Container>
   );
 };
