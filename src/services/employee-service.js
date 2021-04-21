@@ -18,7 +18,7 @@ const addEmployee = async ({ name, location, email }) => {
     body: JSON.stringify({ employee: { name, location, email } }),
   });
   const addEmployeeJson = await addEmployeeResponse.json();
-  //simulate loading
+  // simulate loading 2.5 seconds
   await new Promise((resolve) => {
     setTimeout(() => {
       resolve();

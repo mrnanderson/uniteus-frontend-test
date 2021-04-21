@@ -9,6 +9,7 @@ import employeeService from "../services/employee-service";
 import { useHistory } from "react-router-dom";
 import { EmployeeDataContext } from "../contextproviders/employee-data";
 
+// styles
 const employeeFormContainer = {
   justifyContent: "center",
   maxWidth: "500px",
@@ -37,6 +38,7 @@ const loadingStyle = {
   margin: "auto",
   marginTop: "20px",
 };
+
 const AddEmployeeForm = () => {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");

@@ -8,3 +8,9 @@ npm install
 npm run dev
 
 ```
+
+#### Opportunities for improvement
+
+- Unit tests
+- Backend auth and additional validation
+- search all fields on employee instead of just "search by name"
