@@ -13,4 +13,4 @@ npm run dev
 
 - Unit tests
 - Backend auth and additional validation
-- search all fields on employee instead of just "search by name"
+- Search all fields on employee instead of just "search by name"
